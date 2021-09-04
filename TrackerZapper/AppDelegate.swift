@@ -184,7 +184,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                     params = params.filter { !$0.starts(with: r)}
                 }
                 let joinedParams = params.joined(separator: "&")
-                let formattedUrl = "\(urlParts[0])?\(joinedParams)"
+                print(joinedParams)
+                var formattedUrl = "\(urlParts[0])?\(joinedParams)"
+                if (joinedParams == "")
+                {
+                    formattedUrl = urlParts[0]
+                }
                 formatted = formatted.replacingOccurrences(of: url, with: formattedUrl)
             }
         }

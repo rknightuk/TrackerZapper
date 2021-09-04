@@ -1,6 +1,6 @@
 # TrackerZapper
 
-![TrackerZapper Icon](https://raw.githubusercontent.com/rknightuk/TrackerZapper/main/TrackerZapper/Assets.xcassets/AppIcon.appiconset/128.png)
+<a target="_blank" rel="noopener noreferrer" href="https://raw.githubusercontent.com/rknightuk/TrackerZapper/main/TrackerZapper/Assets.xcassets/AppIcon.appiconset/1024.png"><img src="https://raw.githubusercontent.com/rknightuk/TrackerZapper/main/TrackerZapper/Assets.xcassets/AppIcon.appiconset/128.png" alt="TrackerZapper Icon" style="max-width: 100%;"></a>
 
 [Website and more info](https://rknight.me/apps/tracker-zapper)
 

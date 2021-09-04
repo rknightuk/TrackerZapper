@@ -8,4 +8,6 @@ TrackerZapper is a Mac app that sits in your menubar and silently removes tracki
 
 [Download from the releases page](https://github.com/rknightuk/TrackerZapper/releases/latest)
 
+You will get a warning about unidentified developer so you can either right-click > open, or attempt to open then open System Preferences > Security & Privacy then allow the app.
+
 Requires MacOS Big Sur or later because I don't have anything else to test on. It might work, give it a go.

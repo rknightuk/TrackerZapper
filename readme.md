@@ -1,5 +1,7 @@
 # TrackerZapper
 
+![TrackerZapper Icon](https://raw.githubusercontent.com/rknightuk/TrackerZapper/main/TrackerZapper/Assets.xcassets/AppIcon.appiconset/128.png)
+
 [Website and more info](https://rknight.me/apps/tracker-zapper)
 
 TrackerZapper is a Mac app that sits in your menubar and silently removes tracking parameters from any links you copy.

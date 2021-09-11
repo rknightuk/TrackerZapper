@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		540DD56C26ED2D49001CAA6B /* Preferences in Frameworks */ = {isa = PBXBuildFile; productRef = 540DD56B26ED2D49001CAA6B /* Preferences */; };
 		543DAE4B26DFDE65000B6705 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543DAE4A26DFDE65000B6705 /* AppDelegate.swift */; };
 		543DAE4F26DFDE66000B6705 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 543DAE4E26DFDE66000B6705 /* Assets.xcassets */; };
 		543DAE5226DFDE66000B6705 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 543DAE5126DFDE66000B6705 /* Preview Assets.xcassets */; };
@@ -30,6 +31,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				540DD56C26ED2D49001CAA6B /* Preferences in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,6 +92,9 @@
 			dependencies = (
 			);
 			name = TrackerZapper;
+			packageProductDependencies = (
+				540DD56B26ED2D49001CAA6B /* Preferences */,
+			);
 			productName = TrackerZapper;
 			productReference = 543DAE4726DFDE65000B6705 /* TrackerZapper.app */;
 			productType = "com.apple.product-type.application";
@@ -117,6 +122,9 @@
 				Base,
 			);
 			mainGroup = 543DAE3E26DFDE65000B6705;
+			packageReferences = (
+				540DD56A26ED2D49001CAA6B /* XCRemoteSwiftPackageReference "Preferences" */,
+			);
 			productRefGroup = 543DAE4826DFDE65000B6705 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -352,6 +360,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		540DD56A26ED2D49001CAA6B /* XCRemoteSwiftPackageReference "Preferences" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:sindresorhus/Preferences.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.5.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		540DD56B26ED2D49001CAA6B /* Preferences */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 540DD56A26ED2D49001CAA6B /* XCRemoteSwiftPackageReference "Preferences" */;
+			productName = Preferences;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 543DAE3F26DFDE65000B6705 /* Project object */;
 }

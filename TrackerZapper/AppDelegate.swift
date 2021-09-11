@@ -7,6 +7,7 @@
 
 import Cocoa
 import SwiftUI
+import Preferences
 
 extension NSNotification.Name {
     public static let NSPasteboardDidChange: NSNotification.Name = .init(rawValue: "pasteboardDidChangeNotification")
@@ -23,6 +24,19 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     let pasteboard: NSPasteboard = .general
     var lastChangeCount: Int = 0
     var previous: String? = nil
+
+    @available(macOS 11.0, *)
+    private lazy var preferencesWindowController = PreferencesWindowController(
+        panes: [
+            Preferences.Pane(
+                identifier: .general,
+                title: "General",
+                toolbarIcon: NSImage(systemSymbolName: "bolt.circle.fill", accessibilityDescription: "General preferences")!
+            ) {
+                GeneralView()
+            },
+        ]
+    )
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         userDefaults.register(
@@ -69,6 +83,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             keyEquivalent: "")
         
         statusBarMenu.addItem(
+            withTitle: "Preferences",
+            action: #selector(showPrefs(_:)),
+            keyEquivalent: "")
+        
+        statusBarMenu.addItem(
             withTitle: "Quit",
             action: #selector(ExitNow(sender:)),
             keyEquivalent: "")
@@ -91,6 +110,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 NSApplication.AboutPanelOptionKey(rawValue: "Copyright"): "© 2021 Robb Knight"]
         )
         NSApp.activate(ignoringOtherApps: true)
+    }
+    
+    @IBAction
+    func showPrefs(_ sender: NSMenuItem) {
+        if #available(macOS 11.0, *) {
+            preferencesWindowController.show()
+        } else {
+            // Fallback on earlier versions
+        }
     }
     
     @objc

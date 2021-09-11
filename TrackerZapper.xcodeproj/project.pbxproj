@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		540DD56C26ED2D49001CAA6B /* Preferences in Frameworks */ = {isa = PBXBuildFile; productRef = 540DD56B26ED2D49001CAA6B /* Preferences */; };
+		540DD57C26ED3707001CAA6B /* GeneralPreferenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 540DD57B26ED3707001CAA6B /* GeneralPreferenceViewController.swift */; };
+		540DD57E26ED3729001CAA6B /* AdvancedPreferenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 540DD57D26ED3729001CAA6B /* AdvancedPreferenceViewController.swift */; };
+		540DD58026ED37BA001CAA6B /* GeneralPreferenceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 540DD57F26ED37BA001CAA6B /* GeneralPreferenceViewController.xib */; };
+		540DD58226ED3A97001CAA6B /* GeneralView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 540DD58126ED3A97001CAA6B /* GeneralView.swift */; };
+		540DD58426ED3B4C001CAA6B /* PaneIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 540DD58326ED3B4C001CAA6B /* PaneIdentifier.swift */; };
 		543DAE4B26DFDE65000B6705 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543DAE4A26DFDE65000B6705 /* AppDelegate.swift */; };
 		543DAE4F26DFDE66000B6705 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 543DAE4E26DFDE66000B6705 /* Assets.xcassets */; };
 		543DAE5226DFDE66000B6705 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 543DAE5126DFDE66000B6705 /* Preview Assets.xcassets */; };
@@ -16,6 +21,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		540DD57B26ED3707001CAA6B /* GeneralPreferenceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralPreferenceViewController.swift; sourceTree = "<group>"; };
+		540DD57D26ED3729001CAA6B /* AdvancedPreferenceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvancedPreferenceViewController.swift; sourceTree = "<group>"; };
+		540DD57F26ED37BA001CAA6B /* GeneralPreferenceViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GeneralPreferenceViewController.xib; sourceTree = "<group>"; };
+		540DD58126ED3A97001CAA6B /* GeneralView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralView.swift; sourceTree = "<group>"; };
+		540DD58326ED3B4C001CAA6B /* PaneIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaneIdentifier.swift; sourceTree = "<group>"; };
 		543DAE4726DFDE65000B6705 /* TrackerZapper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrackerZapper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		543DAE4A26DFDE65000B6705 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		543DAE4E26DFDE66000B6705 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -58,6 +68,11 @@
 			isa = PBXGroup;
 			children = (
 				543DAE4A26DFDE65000B6705 /* AppDelegate.swift */,
+				540DD58326ED3B4C001CAA6B /* PaneIdentifier.swift */,
+				540DD57F26ED37BA001CAA6B /* GeneralPreferenceViewController.xib */,
+				540DD57B26ED3707001CAA6B /* GeneralPreferenceViewController.swift */,
+				540DD57D26ED3729001CAA6B /* AdvancedPreferenceViewController.swift */,
+				540DD58126ED3A97001CAA6B /* GeneralView.swift */,
 				54C728D226E3B2AD002D63E0 /* Credits.rtf */,
 				543DAE4E26DFDE66000B6705 /* Assets.xcassets */,
 				543DAE5326DFDE66000B6705 /* Main.storyboard */,
@@ -141,6 +156,7 @@
 			files = (
 				543DAE5526DFDE66000B6705 /* Main.storyboard in Resources */,
 				543DAE5226DFDE66000B6705 /* Preview Assets.xcassets in Resources */,
+				540DD58026ED37BA001CAA6B /* GeneralPreferenceViewController.xib in Resources */,
 				543DAE4F26DFDE66000B6705 /* Assets.xcassets in Resources */,
 				54C728D326E3B2AD002D63E0 /* Credits.rtf in Resources */,
 			);
@@ -153,7 +169,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				540DD58426ED3B4C001CAA6B /* PaneIdentifier.swift in Sources */,
+				540DD57C26ED3707001CAA6B /* GeneralPreferenceViewController.swift in Sources */,
+				540DD58226ED3A97001CAA6B /* GeneralView.swift in Sources */,
 				543DAE4B26DFDE65000B6705 /* AppDelegate.swift in Sources */,
+				540DD57E26ED3729001CAA6B /* AdvancedPreferenceViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

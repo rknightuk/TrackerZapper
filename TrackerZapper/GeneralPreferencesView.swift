@@ -8,6 +8,7 @@
 import SwiftUI
 import Preferences
 import KeyboardShortcuts
+import LaunchAtLogin
 
 struct GeneralPreferencesView: View {
     private let contentWidth: Double = 300.0
@@ -18,6 +19,7 @@ struct GeneralPreferencesView: View {
                 HStack(alignment: .firstTextBaseline) {
                     KeyboardShortcuts.Recorder(for: .toggleZapping)
                 }
+                LaunchAtLogin.Toggle()
             }
         }
     }

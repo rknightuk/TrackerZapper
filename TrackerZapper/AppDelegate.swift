@@ -7,6 +7,8 @@
 
 import Cocoa
 import SwiftUI
+import Preferences
+import KeyboardShortcuts
 
 extension NSNotification.Name {
     public static let NSPasteboardDidChange: NSNotification.Name = .init(rawValue: "pasteboardDidChangeNotification")
@@ -24,6 +26,19 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var lastChangeCount: Int = 0
     var previous: String? = nil
 
+    @available(macOS 11.0, *)
+    private lazy var preferencesWindowController = PreferencesWindowController(
+        panes: [
+            Preferences.Pane(
+                identifier: .general,
+                title: "General",
+                toolbarIcon: NSImage(systemSymbolName: "bolt.circle.fill", accessibilityDescription: "General preferences")!
+            ) {
+                GeneralPreferencesView()
+            },
+        ]
+    )
+
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         userDefaults.register(
             defaults: [
@@ -31,6 +46,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             ]
         )
         userDefaults.set(UserDefaults.standard.bool(forKey: "zappingEnabled"), forKey: "zappingEnabled")
+        
+        KeyboardShortcuts.onKeyUp(for: .toggleZapping) { [self] in
+            toggleEnabled()
+        }
         
         timer = Timer.scheduledTimer(withTimeInterval: 0.05, repeats: true) { (t) in
             if self.lastChangeCount != self.pasteboard.changeCount {
@@ -60,7 +79,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
         statusBarMenu.addItem(
             withTitle: "Toggle Zapping",
-            action: #selector(toggleEnabled(sender:)),
+            action: #selector(handleToggledFromMenu(sender:)),
             keyEquivalent: "")
         
         statusBarMenu.addItem(
@@ -69,19 +88,28 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             keyEquivalent: "")
         
         statusBarMenu.addItem(
+            withTitle: "Preferences",
+            action: #selector(showPrefs(_:)),
+            keyEquivalent: "")
+        
+        statusBarMenu.addItem(
             withTitle: "Quit",
             action: #selector(ExitNow(sender:)),
             keyEquivalent: "")
     }
     
-    @objc func toggleEnabled(sender: AnyObject) {
-        UserDefaults.standard.set(!zappingEnabled, forKey: "zappingEnabled")
-        zappingEnabled = !zappingEnabled
-        statusItem?.button?.appearsDisabled = !zappingEnabled
+    @objc func handleToggledFromMenu(sender: AnyObject) {
+        toggleEnabled()
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
         timer.invalidate()
+    }
+    
+    func toggleEnabled() {
+        UserDefaults.standard.set(!zappingEnabled, forKey: "zappingEnabled")
+        zappingEnabled = !zappingEnabled
+        statusItem?.button?.appearsDisabled = !zappingEnabled
     }
     
     @objc func showAbout(sender: AnyObject)
@@ -91,6 +119,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 NSApplication.AboutPanelOptionKey(rawValue: "Copyright"): "© 2021 Robb Knight"]
         )
         NSApp.activate(ignoringOtherApps: true)
+    }
+    
+    @IBAction
+    func showPrefs(_ sender: NSMenuItem) {
+        if #available(macOS 11.0, *) {
+            preferencesWindowController.show()
+        } else {
+            // Fallback on earlier versions
+        }
     }
     
     @objc
@@ -184,7 +221,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                     params = params.filter { !$0.starts(with: r)}
                 }
                 let joinedParams = params.joined(separator: "&")
-                print(joinedParams)
+                
                 var formattedUrl = "\(urlParts[0])?\(joinedParams)"
                 if (joinedParams == "")
                 {

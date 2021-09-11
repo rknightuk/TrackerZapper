@@ -1,0 +1,34 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "KeyboardShortcuts",
+        "repositoryURL": "git@github.com:sindresorhus/KeyboardShortcuts.git",
+        "state": {
+          "branch": null,
+          "revision": "7030a2e3d46100585f9c5c6a2fe3bae9f6e78fa8",
+          "version": "1.2.1"
+        }
+      },
+      {
+        "package": "LaunchAtLogin",
+        "repositoryURL": "git@github.com:sindresorhus/LaunchAtLogin.git",
+        "state": {
+          "branch": null,
+          "revision": "6b16bcdf7d45a9d76a768a5c4912dde925cf0e95",
+          "version": "4.1.0"
+        }
+      },
+      {
+        "package": "Preferences",
+        "repositoryURL": "git@github.com:sindresorhus/Preferences.git",
+        "state": {
+          "branch": null,
+          "revision": "ffeaaad1def45d0625720dc1adae3789cd9c167d",
+          "version": "2.5.0"
+        }
+      }
+    ]
+  },
+  "version": 1
+}

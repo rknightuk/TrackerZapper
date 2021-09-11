@@ -8,6 +8,7 @@
 import Cocoa
 import SwiftUI
 import Preferences
+import KeyboardShortcuts
 
 extension NSNotification.Name {
     public static let NSPasteboardDidChange: NSNotification.Name = .init(rawValue: "pasteboardDidChangeNotification")
@@ -33,7 +34,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 title: "General",
                 toolbarIcon: NSImage(systemSymbolName: "bolt.circle.fill", accessibilityDescription: "General preferences")!
             ) {
-                GeneralView()
+                GeneralPreferencesView()
             },
         ]
     )
@@ -45,6 +46,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             ]
         )
         userDefaults.set(UserDefaults.standard.bool(forKey: "zappingEnabled"), forKey: "zappingEnabled")
+        
+        KeyboardShortcuts.onKeyUp(for: .toggleZapping) { [self] in
+            toggleEnabled()
+        }
         
         timer = Timer.scheduledTimer(withTimeInterval: 0.05, repeats: true) { (t) in
             if self.lastChangeCount != self.pasteboard.changeCount {
@@ -74,7 +79,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
         statusBarMenu.addItem(
             withTitle: "Toggle Zapping",
-            action: #selector(toggleEnabled(sender:)),
+            action: #selector(handleToggledFromMenu(sender:)),
             keyEquivalent: "")
         
         statusBarMenu.addItem(
@@ -93,14 +98,18 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             keyEquivalent: "")
     }
     
-    @objc func toggleEnabled(sender: AnyObject) {
-        UserDefaults.standard.set(!zappingEnabled, forKey: "zappingEnabled")
-        zappingEnabled = !zappingEnabled
-        statusItem?.button?.appearsDisabled = !zappingEnabled
+    @objc func handleToggledFromMenu(sender: AnyObject) {
+        toggleEnabled()
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
         timer.invalidate()
+    }
+    
+    func toggleEnabled() {
+        UserDefaults.standard.set(!zappingEnabled, forKey: "zappingEnabled")
+        zappingEnabled = !zappingEnabled
+        statusItem?.button?.appearsDisabled = !zappingEnabled
     }
     
     @objc func showAbout(sender: AnyObject)

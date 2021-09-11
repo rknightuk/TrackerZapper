@@ -2,6 +2,15 @@
   "object": {
     "pins": [
       {
+        "package": "KeyboardShortcuts",
+        "repositoryURL": "git@github.com:sindresorhus/KeyboardShortcuts.git",
+        "state": {
+          "branch": null,
+          "revision": "7030a2e3d46100585f9c5c6a2fe3bae9f6e78fa8",
+          "version": "1.2.1"
+        }
+      },
+      {
         "package": "Preferences",
         "repositoryURL": "git@github.com:sindresorhus/Preferences.git",
         "state": {

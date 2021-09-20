@@ -16,6 +16,7 @@
 		543DAE4F26DFDE66000B6705 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 543DAE4E26DFDE66000B6705 /* Assets.xcassets */; };
 		543DAE5226DFDE66000B6705 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 543DAE5126DFDE66000B6705 /* Preview Assets.xcassets */; };
 		543DAE5526DFDE66000B6705 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 543DAE5326DFDE66000B6705 /* Main.storyboard */; };
+		545CD0EF26EE518800589ADE /* DropDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545CD0EE26EE518800589ADE /* DropDelegate.swift */; };
 		54C728D326E3B2AD002D63E0 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 54C728D226E3B2AD002D63E0 /* Credits.rtf */; };
 /* End PBXBuildFile section */
 
@@ -29,6 +30,7 @@
 		543DAE5426DFDE66000B6705 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		543DAE5626DFDE66000B6705 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		543DAE5726DFDE66000B6705 /* TrackerZapper.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TrackerZapper.entitlements; sourceTree = "<group>"; };
+		545CD0EE26EE518800589ADE /* DropDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDelegate.swift; sourceTree = "<group>"; };
 		54C728D226E3B2AD002D63E0 /* Credits.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = Credits.rtf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -67,6 +69,7 @@
 			children = (
 				543DAE4A26DFDE65000B6705 /* AppDelegate.swift */,
 				540DD58A26ED3F91001CAA6B /* GeneralPreferencesView.swift */,
+				545CD0EE26EE518800589ADE /* DropDelegate.swift */,
 				54C728D226E3B2AD002D63E0 /* Credits.rtf */,
 				543DAE4E26DFDE66000B6705 /* Assets.xcassets */,
 				543DAE5326DFDE66000B6705 /* Main.storyboard */,
@@ -189,6 +192,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				540DD58B26ED3F91001CAA6B /* GeneralPreferencesView.swift in Sources */,
+				545CD0EF26EE518800589ADE /* DropDelegate.swift in Sources */,
 				543DAE4B26DFDE65000B6705 /* AppDelegate.swift in Sources */,
 				540DD58926ED3CF6001CAA6B /* Constants.swift in Sources */,
 			);

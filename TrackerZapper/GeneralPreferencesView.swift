@@ -10,8 +10,11 @@ import Preferences
 import KeyboardShortcuts
 import LaunchAtLogin
 
+let uttypes = [String(kUTTypeFileURL)]
+
 struct GeneralPreferencesView: View {
     private let contentWidth: Double = 300.0
+    let dropDelegate = AppDropDelegate()
 
     var body: some View {
         Preferences.Container(contentWidth: contentWidth) {
@@ -20,6 +23,9 @@ struct GeneralPreferencesView: View {
                     KeyboardShortcuts.Recorder(for: .toggleZapping)
                 }
                 LaunchAtLogin.Toggle()
+                Text("HELLO")
+                    .padding(20)
+                    .onDrop(of: uttypes, delegate: dropDelegate as! DropDelegate)
             }
         }
     }

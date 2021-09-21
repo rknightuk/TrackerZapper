@@ -183,7 +183,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             "mkwid",
             "msclkid",
             "mtm_",
-            "name",
             "ns_",
             "oly_anon_id",
             "oly_enc_id",

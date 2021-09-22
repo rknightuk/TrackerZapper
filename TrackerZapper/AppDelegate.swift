@@ -167,6 +167,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             "_hsmi",
             "_ke",
             "_openstat",
+            "cid",
             "dm_i",
             "ef_id",
             "epik",

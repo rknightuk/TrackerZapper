@@ -8,6 +8,12 @@ TrackerZapper is a Mac app that sits in your menubar and automatically removes t
 
 [Download from the releases page](https://github.com/rknightuk/TrackerZapper/releases/latest)
 
+You can also install via [Homebrew](https://brew.sh/):
+
+```sh
+brew install --cask trackerzapper
+```
+
 You will get a warning about unidentified developer so you can either right-click > open, or attempt to open then open System Preferences > Security & Privacy then allow the app.
 
 Requires MacOS Big Sur or later because I don't have anything else to test on. It might work, give it a go.

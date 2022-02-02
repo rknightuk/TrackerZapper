@@ -197,6 +197,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             "ref",
             "s_kwcid",
             "sb_referer_host",
+            "scrolla",
             "soc_src",
             "soc_trk",
             "spm",

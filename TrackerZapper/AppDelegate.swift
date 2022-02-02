@@ -141,7 +141,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         guard (items.first?.data(forType: NSPasteboard.PasteboardType.tiff) == nil) else { return }
         guard let item = items.first?.string(forType: .string) else { return }
         
-        if item.contains("<") { return } // assume it's HTML and don't run it
+        if !item.starts(with: "http") { return } // don't run if it's not a link
         
         if (item == previous)
         {

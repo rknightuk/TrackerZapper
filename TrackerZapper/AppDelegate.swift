@@ -159,7 +159,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
         // prefixes from various places including
         // https://github.com/newhouse/url-tracking-stripper/blob/master/assets/js/trackers.js
-        let REMOVE = [
+        var REMOVE = [
             "_bta_c",
             "_bta_tid",
             "_ga",
@@ -208,6 +208,19 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             "utm_",
             "vero_",
         ]
+        
+        // Prefixes for Twitter
+        let twitterParams = [
+            "s",
+            "t"
+        ]
+        
+        // Twitter uses extremely generic "s" and "t" params in its tracker links,
+        // so only adding them if it's a twitter link to not break other sites
+        if (item.contains("twitter.com"))
+        {
+            REMOVE.append(contentsOf: twitterParams)
+        }
 
         var formatted = item
 

@@ -157,58 +157,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let detector = try! NSDataDetector(types: NSTextCheckingResult.CheckingType.link.rawValue)
         let matches = detector.matches(in: item, options: [], range: NSRange(location: 0, length: item.utf16.count))
 
-        // prefixes from various places including
-        // https://github.com/newhouse/url-tracking-stripper/blob/master/assets/js/trackers.js
-        let REMOVE = [
-            "_bta_c",
-            "_bta_tid",
-            "_ga",
-            "_hsenc",
-            "_hsmi",
-            "_ke",
-            "_openstat",
-            "cid",
-            "dm_i",
-            "ef_id",
-            "epik",
-            "fbclid",
-            "gclid",
-            "gclsrc",
-            "gdffi",
-            "gdfms",
-            "gdftrk",
-            "hsa_",
-            "igshid",
-            "matomo_",
-            "mc_",
-            "mkwid",
-            "msclkid",
-            "mtm_",
-            "ns_",
-            "oly_anon_id",
-            "oly_enc_id",
-            "otc",
-            "pcrid",
-            "piwik_",
-            "pk_",
-            "rb_clickid",
-            "redirect_log_mongo_id",
-            "redirect_mongo_id",
-            "ref",
-            "s_kwcid",
-            "sb_referer_host",
-            "scrolla",
-            "soc_src",
-            "soc_trk",
-            "spm",
-            "sr_",
-            "srcid",
-            "stm_",
-            "trk_",
-            "utm_",
-            "vero_",
-        ]
-
         var formatted = item
 
         for match in matches {
@@ -218,8 +166,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             if (urlParts.indices.contains(1))
             {
                 var params = urlParts[1].components(separatedBy: "&")
-                for r in REMOVE {
-                    params = params.filter { !$0.starts(with: r)}
+                for r in paramsToRemove {
+                    if (url.contains(r.website)) {
+                        params = params.filter { !$0.starts(with: r.parameterPrefix) }
+                    }
                 }
                 let joinedParams = params.joined(separator: "&")
                 
